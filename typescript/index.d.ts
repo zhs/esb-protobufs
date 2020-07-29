@@ -604,6 +604,47 @@ export namespace meta {
   }
 }
 
+export namespace staff {
+  export interface staff {
+    getLeavingEmployees(request: any, metadata?: any): Observable<LeavingList>;
+  }
+
+  export interface LeavingList {
+    line: LeavingListLine[];
+  }
+
+  export interface LeavingListLine {
+    id: number;
+    employee: Employee;
+    action: Action[];
+    marks: Marks[];
+  }
+
+  export interface Employee {
+    id: number;
+    name: string;
+    surname: string;
+    dateDismissal: string;
+    subdivision: string;
+    position: string;
+    mobilePhone: string;
+  }
+
+  export interface Action {
+    id: number;
+    title: string;
+    subtitle: string;
+    value: string;
+    option: string[];
+  }
+
+  export interface Marks {
+    user: string;
+    mark: boolean;
+    disabled: boolean;
+  }
+}
+
 export namespace slack {
   export interface Tracker {
     statusChangeTicket(
