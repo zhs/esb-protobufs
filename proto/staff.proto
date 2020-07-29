@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option go_package = "go/staff";
+import "google/protobuf/empty.proto";
+
+service staff {
+    rpc getLeavingEmployees (google.protobuf.Empty) returns (LeavingList) {
+    }
+}
+
+message LeavingList {
+    repeated LeavingListLine line = 1;
+}
+
+message LeavingListLine {
+    int32 id = 1;
+    Employee employee = 2;
+    repeated Action action = 3;
+    repeated Marks marks = 4;
+}
+
+message Employee {
+    int32 id = 1;
+    string name = 2;
+    string surname = 3;
+    string dateDismissal = 4;
+    string subdivision = 5;
+    string position = 6;
+    string mobilePhone = 7;
+}
+
+message Action {
+    int32 id = 1;
+    string title = 2;
+    string subtitle = 3;
+    string value = 4;
+    repeated string option = 5;
+}
+
+message Marks {
+    string user = 1;
+    bool mark = 2;
+    bool disabled = 3;
+}
