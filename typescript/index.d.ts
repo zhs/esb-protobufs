@@ -946,6 +946,13 @@ export namespace transport {
     payments: paymentType[];
     delivery_date: deliveryTime[];
   }
+  enum DELIVERY_TYPE {
+    courier,
+    courier_fast,
+    courier_fitting,
+    pickup_shop,
+    pickup_boxberry,
+  }
 
   export interface deliveryCompany {
     code: string;

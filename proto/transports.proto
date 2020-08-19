@@ -240,7 +240,7 @@ service WinnersCompanies {
 
 message WinnersParams {
     string geo_id = 1;
-    
+
     int32 order_price = 2;
     // enum idType {
     //     FIAS = 0;
@@ -255,15 +255,14 @@ message WinnersResponse {
     repeated winner result = 1;
 }
 
-enum DELIVERY_TYPE {
-    courier = 0;
-    courier_fast = 1;
-    courier_fitting = 2;
-    pickup_shop = 3;
-    pickup_boxberry = 4;
-}
-
 message winner {
+    enum DELIVERY_TYPE {
+        courier = 0;
+        courier_fast = 1;
+        courier_fitting = 2;
+        pickup_shop = 3;
+        pickup_boxberry = 4;
+    }
     DELIVERY_TYPE delivery_type_id = 1;
     string delivery_type_title = 2;
     deliveryCompany winner_company = 3;
