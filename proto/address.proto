@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "go/address";
+
+package address;
+
+service address {
+    rpc getFias (Address) returns (addressId) {
+    }
+    rpc getGeonameId (Address) returns (addressId) {
+    }
+    rpc getAddressId (Address) returns (addressId) {
+    }
+}
+
+message Address {
+    string countryCode = 1;
+    string locality = 2;
+    string street = 3;
+    string houseNumber = 4;
+    string postalCode = 5;
+}
+
+message addressId {
+    string id = 1;
+}
