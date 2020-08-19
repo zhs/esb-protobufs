@@ -108,16 +108,16 @@ func (x *Address) GetPostalCode() string {
 	return ""
 }
 
-type Fias struct {
+type AddressId struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Fias string `protobuf:"bytes,1,opt,name=fias,proto3" json:"fias,omitempty"`
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (x *Fias) Reset() {
-	*x = Fias{}
+func (x *AddressId) Reset() {
+	*x = AddressId{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_proto_address_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -125,13 +125,13 @@ func (x *Fias) Reset() {
 	}
 }
 
-func (x *Fias) String() string {
+func (x *AddressId) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Fias) ProtoMessage() {}
+func (*AddressId) ProtoMessage() {}
 
-func (x *Fias) ProtoReflect() protoreflect.Message {
+func (x *AddressId) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_address_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -143,61 +143,14 @@ func (x *Fias) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Fias.ProtoReflect.Descriptor instead.
-func (*Fias) Descriptor() ([]byte, []int) {
+// Deprecated: Use AddressId.ProtoReflect.Descriptor instead.
+func (*AddressId) Descriptor() ([]byte, []int) {
 	return file_proto_address_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *Fias) GetFias() string {
+func (x *AddressId) GetId() string {
 	if x != nil {
-		return x.Fias
-	}
-	return ""
-}
-
-type GeonameId struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	GeonameId string `protobuf:"bytes,1,opt,name=geonameId,proto3" json:"geonameId,omitempty"`
-}
-
-func (x *GeonameId) Reset() {
-	*x = GeonameId{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_address_proto_msgTypes[2]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GeonameId) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GeonameId) ProtoMessage() {}
-
-func (x *GeonameId) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_address_proto_msgTypes[2]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GeonameId.ProtoReflect.Descriptor instead.
-func (*GeonameId) Descriptor() ([]byte, []int) {
-	return file_proto_address_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *GeonameId) GetGeonameId() string {
-	if x != nil {
-		return x.GeonameId
+		return x.Id
 	}
 	return ""
 }
@@ -217,19 +170,21 @@ var file_proto_address_proto_rawDesc = []byte{
 	0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x68, 0x6f, 0x75, 0x73, 0x65, 0x4e, 0x75, 0x6d, 0x62,
 	0x65, 0x72, 0x12, 0x1e, 0x0a, 0x0a, 0x70, 0x6f, 0x73, 0x74, 0x61, 0x6c, 0x43, 0x6f, 0x64, 0x65,
 	0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x70, 0x6f, 0x73, 0x74, 0x61, 0x6c, 0x43, 0x6f,
-	0x64, 0x65, 0x22, 0x1a, 0x0a, 0x04, 0x46, 0x69, 0x61, 0x73, 0x12, 0x12, 0x0a, 0x04, 0x66, 0x69,
-	0x61, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x66, 0x69, 0x61, 0x73, 0x22, 0x29,
-	0x0a, 0x09, 0x47, 0x65, 0x6f, 0x6e, 0x61, 0x6d, 0x65, 0x49, 0x64, 0x12, 0x1c, 0x0a, 0x09, 0x67,
-	0x65, 0x6f, 0x6e, 0x61, 0x6d, 0x65, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09,
-	0x67, 0x65, 0x6f, 0x6e, 0x61, 0x6d, 0x65, 0x49, 0x64, 0x32, 0x6f, 0x0a, 0x07, 0x61, 0x64, 0x64,
-	0x72, 0x65, 0x73, 0x73, 0x12, 0x2c, 0x0a, 0x07, 0x67, 0x65, 0x74, 0x46, 0x69, 0x61, 0x73, 0x12,
-	0x10, 0x2e, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x2e, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73,
-	0x73, 0x1a, 0x0d, 0x2e, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x2e, 0x46, 0x69, 0x61, 0x73,
-	0x22, 0x00, 0x12, 0x36, 0x0a, 0x0c, 0x67, 0x65, 0x74, 0x47, 0x65, 0x6f, 0x6e, 0x61, 0x6d, 0x65,
-	0x49, 0x64, 0x12, 0x10, 0x2e, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x2e, 0x41, 0x64, 0x64,
-	0x72, 0x65, 0x73, 0x73, 0x1a, 0x12, 0x2e, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x2e, 0x47,
-	0x65, 0x6f, 0x6e, 0x61, 0x6d, 0x65, 0x49, 0x64, 0x22, 0x00, 0x42, 0x0c, 0x5a, 0x0a, 0x67, 0x6f,
-	0x2f, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x64, 0x65, 0x22, 0x1b, 0x0a, 0x09, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x49, 0x64, 0x12,
+	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x32,
+	0xac, 0x01, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x31, 0x0a, 0x07, 0x67,
+	0x65, 0x74, 0x46, 0x69, 0x61, 0x73, 0x12, 0x10, 0x2e, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73,
+	0x2e, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x1a, 0x12, 0x2e, 0x61, 0x64, 0x64, 0x72, 0x65,
+	0x73, 0x73, 0x2e, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x49, 0x64, 0x22, 0x00, 0x12, 0x36,
+	0x0a, 0x0c, 0x67, 0x65, 0x74, 0x47, 0x65, 0x6f, 0x6e, 0x61, 0x6d, 0x65, 0x49, 0x64, 0x12, 0x10,
+	0x2e, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x2e, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73,
+	0x1a, 0x12, 0x2e, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x2e, 0x61, 0x64, 0x64, 0x72, 0x65,
+	0x73, 0x73, 0x49, 0x64, 0x22, 0x00, 0x12, 0x36, 0x0a, 0x0c, 0x67, 0x65, 0x74, 0x41, 0x64, 0x64,
+	0x72, 0x65, 0x73, 0x73, 0x49, 0x64, 0x12, 0x10, 0x2e, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73,
+	0x2e, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x1a, 0x12, 0x2e, 0x61, 0x64, 0x64, 0x72, 0x65,
+	0x73, 0x73, 0x2e, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x49, 0x64, 0x22, 0x00, 0x42, 0x0c,
+	0x5a, 0x0a, 0x67, 0x6f, 0x2f, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x62, 0x06, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -244,19 +199,20 @@ func file_proto_address_proto_rawDescGZIP() []byte {
 	return file_proto_address_proto_rawDescData
 }
 
-var file_proto_address_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_proto_address_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_proto_address_proto_goTypes = []interface{}{
 	(*Address)(nil),   // 0: address.Address
-	(*Fias)(nil),      // 1: address.Fias
-	(*GeonameId)(nil), // 2: address.GeonameId
+	(*AddressId)(nil), // 1: address.addressId
 }
 var file_proto_address_proto_depIdxs = []int32{
 	0, // 0: address.address.getFias:input_type -> address.Address
 	0, // 1: address.address.getGeonameId:input_type -> address.Address
-	1, // 2: address.address.getFias:output_type -> address.Fias
-	2, // 3: address.address.getGeonameId:output_type -> address.GeonameId
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	0, // 2: address.address.getAddressId:input_type -> address.Address
+	1, // 3: address.address.getFias:output_type -> address.addressId
+	1, // 4: address.address.getGeonameId:output_type -> address.addressId
+	1, // 5: address.address.getAddressId:output_type -> address.addressId
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -281,19 +237,7 @@ func file_proto_address_proto_init() {
 			}
 		}
 		file_proto_address_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Fias); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_proto_address_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GeonameId); i {
+			switch v := v.(*AddressId); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -311,7 +255,7 @@ func file_proto_address_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_address_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -337,8 +281,9 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type AddressClient interface {
-	GetFias(ctx context.Context, in *Address, opts ...grpc.CallOption) (*Fias, error)
-	GetGeonameId(ctx context.Context, in *Address, opts ...grpc.CallOption) (*GeonameId, error)
+	GetFias(ctx context.Context, in *Address, opts ...grpc.CallOption) (*AddressId, error)
+	GetGeonameId(ctx context.Context, in *Address, opts ...grpc.CallOption) (*AddressId, error)
+	GetAddressId(ctx context.Context, in *Address, opts ...grpc.CallOption) (*AddressId, error)
 }
 
 type addressClient struct {
@@ -349,8 +294,8 @@ func NewAddressClient(cc grpc.ClientConnInterface) AddressClient {
 	return &addressClient{cc}
 }
 
-func (c *addressClient) GetFias(ctx context.Context, in *Address, opts ...grpc.CallOption) (*Fias, error) {
-	out := new(Fias)
+func (c *addressClient) GetFias(ctx context.Context, in *Address, opts ...grpc.CallOption) (*AddressId, error) {
+	out := new(AddressId)
 	err := c.cc.Invoke(ctx, "/address.address/getFias", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -358,9 +303,18 @@ func (c *addressClient) GetFias(ctx context.Context, in *Address, opts ...grpc.C
 	return out, nil
 }
 
-func (c *addressClient) GetGeonameId(ctx context.Context, in *Address, opts ...grpc.CallOption) (*GeonameId, error) {
-	out := new(GeonameId)
+func (c *addressClient) GetGeonameId(ctx context.Context, in *Address, opts ...grpc.CallOption) (*AddressId, error) {
+	out := new(AddressId)
 	err := c.cc.Invoke(ctx, "/address.address/getGeonameId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *addressClient) GetAddressId(ctx context.Context, in *Address, opts ...grpc.CallOption) (*AddressId, error) {
+	out := new(AddressId)
+	err := c.cc.Invoke(ctx, "/address.address/getAddressId", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -369,19 +323,23 @@ func (c *addressClient) GetGeonameId(ctx context.Context, in *Address, opts ...g
 
 // AddressServer is the server API for Address service.
 type AddressServer interface {
-	GetFias(context.Context, *Address) (*Fias, error)
-	GetGeonameId(context.Context, *Address) (*GeonameId, error)
+	GetFias(context.Context, *Address) (*AddressId, error)
+	GetGeonameId(context.Context, *Address) (*AddressId, error)
+	GetAddressId(context.Context, *Address) (*AddressId, error)
 }
 
 // UnimplementedAddressServer can be embedded to have forward compatible implementations.
 type UnimplementedAddressServer struct {
 }
 
-func (*UnimplementedAddressServer) GetFias(context.Context, *Address) (*Fias, error) {
+func (*UnimplementedAddressServer) GetFias(context.Context, *Address) (*AddressId, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFias not implemented")
 }
-func (*UnimplementedAddressServer) GetGeonameId(context.Context, *Address) (*GeonameId, error) {
+func (*UnimplementedAddressServer) GetGeonameId(context.Context, *Address) (*AddressId, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetGeonameId not implemented")
+}
+func (*UnimplementedAddressServer) GetAddressId(context.Context, *Address) (*AddressId, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAddressId not implemented")
 }
 
 func RegisterAddressServer(s *grpc.Server, srv AddressServer) {
@@ -424,6 +382,24 @@ func _Address_GetGeonameId_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Address_GetAddressId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Address)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AddressServer).GetAddressId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/address.address/GetAddressId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AddressServer).GetAddressId(ctx, req.(*Address))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Address_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "address.address",
 	HandlerType: (*AddressServer)(nil),
@@ -435,6 +411,10 @@ var _Address_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "getGeonameId",
 			Handler:    _Address_GetGeonameId_Handler,
+		},
+		{
+			MethodName: "getAddressId",
+			Handler:    _Address_GetAddressId_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

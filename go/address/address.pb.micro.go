@@ -42,8 +42,9 @@ func NewAddressEndpoints() []*api.Endpoint {
 // Client API for Address service
 
 type AddressService interface {
-	GetFias(ctx context.Context, in *Address, opts ...client.CallOption) (*Fias, error)
-	GetGeonameId(ctx context.Context, in *Address, opts ...client.CallOption) (*GeonameId, error)
+	GetFias(ctx context.Context, in *Address, opts ...client.CallOption) (*AddressId, error)
+	GetGeonameId(ctx context.Context, in *Address, opts ...client.CallOption) (*AddressId, error)
+	GetAddressId(ctx context.Context, in *Address, opts ...client.CallOption) (*AddressId, error)
 }
 
 type addressService struct {
@@ -58,9 +59,9 @@ func NewAddressService(name string, c client.Client) AddressService {
 	}
 }
 
-func (c *addressService) GetFias(ctx context.Context, in *Address, opts ...client.CallOption) (*Fias, error) {
+func (c *addressService) GetFias(ctx context.Context, in *Address, opts ...client.CallOption) (*AddressId, error) {
 	req := c.c.NewRequest(c.name, "Address.getFias", in)
-	out := new(Fias)
+	out := new(AddressId)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
@@ -68,9 +69,19 @@ func (c *addressService) GetFias(ctx context.Context, in *Address, opts ...clien
 	return out, nil
 }
 
-func (c *addressService) GetGeonameId(ctx context.Context, in *Address, opts ...client.CallOption) (*GeonameId, error) {
+func (c *addressService) GetGeonameId(ctx context.Context, in *Address, opts ...client.CallOption) (*AddressId, error) {
 	req := c.c.NewRequest(c.name, "Address.getGeonameId", in)
-	out := new(GeonameId)
+	out := new(AddressId)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *addressService) GetAddressId(ctx context.Context, in *Address, opts ...client.CallOption) (*AddressId, error) {
+	req := c.c.NewRequest(c.name, "Address.getAddressId", in)
+	out := new(AddressId)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
@@ -81,14 +92,16 @@ func (c *addressService) GetGeonameId(ctx context.Context, in *Address, opts ...
 // Server API for Address service
 
 type AddressHandler interface {
-	GetFias(context.Context, *Address, *Fias) error
-	GetGeonameId(context.Context, *Address, *GeonameId) error
+	GetFias(context.Context, *Address, *AddressId) error
+	GetGeonameId(context.Context, *Address, *AddressId) error
+	GetAddressId(context.Context, *Address, *AddressId) error
 }
 
 func RegisterAddressHandler(s server.Server, hdlr AddressHandler, opts ...server.HandlerOption) error {
 	type address interface {
-		GetFias(ctx context.Context, in *Address, out *Fias) error
-		GetGeonameId(ctx context.Context, in *Address, out *GeonameId) error
+		GetFias(ctx context.Context, in *Address, out *AddressId) error
+		GetGeonameId(ctx context.Context, in *Address, out *AddressId) error
+		GetAddressId(ctx context.Context, in *Address, out *AddressId) error
 	}
 	type Address struct {
 		address
@@ -101,10 +114,14 @@ type addressHandler struct {
 	AddressHandler
 }
 
-func (h *addressHandler) GetFias(ctx context.Context, in *Address, out *Fias) error {
+func (h *addressHandler) GetFias(ctx context.Context, in *Address, out *AddressId) error {
 	return h.AddressHandler.GetFias(ctx, in, out)
 }
 
-func (h *addressHandler) GetGeonameId(ctx context.Context, in *Address, out *GeonameId) error {
+func (h *addressHandler) GetGeonameId(ctx context.Context, in *Address, out *AddressId) error {
 	return h.AddressHandler.GetGeonameId(ctx, in, out)
+}
+
+func (h *addressHandler) GetAddressId(ctx context.Context, in *Address, out *AddressId) error {
+	return h.AddressHandler.GetAddressId(ctx, in, out)
 }

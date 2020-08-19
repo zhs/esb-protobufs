@@ -6,4 +6,5 @@ protoc -I. --micro_out=. --go_out=plugins=grpc:. proto/payments.proto
 protoc -I. --micro_out=. --go_out=plugins=grpc:. proto/slack.proto
 protoc -I. --micro_out=. --go_out=plugins=grpc:. proto/feedbacks.proto
 protoc -I. --micro_out=. --go_out=plugins=grpc:. proto/mercaux.proto
+protoc -I. --micro_out=. --go_out=plugins=grpc:. proto/transports.proto
 protoc -I. --micro_out=. --go_out=plugins=grpc:. proto/address.proto
